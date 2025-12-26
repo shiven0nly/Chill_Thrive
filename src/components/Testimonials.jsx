@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
-  Autoplay,
   EffectCoverflow,
+  Navigation,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
 
 // Testimonials data
 const testimonials = [
@@ -44,17 +46,31 @@ const testimonials = [
   },
 ];
 
-// Reusable carousel component (internal)
-const TestimonialCarousel = ({ testimonials }) => {
+const TestimonialCarousel = () => {
+  const swiperRef = useRef(null);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="w-700px flex justify-center"
-    >
+    <div className="relative max-w-6xl mx-auto">
+      {/* Navigation Buttons */}
+      <button
+        onClick={() => swiperRef.current?.slidePrev()}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white hover:shadow-xl transition-all duration-300 hover:scale-110"
+        aria-label="Previous testimonial"
+      >
+        <ChevronLeft className="w-6 h-6 text-slate-900" />
+      </button>
+
+      <button
+        onClick={() => swiperRef.current?.slideNext()}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md shadow-lg flex items-center justify-center hover:bg-white hover:shadow-xl transition-all duration-300 hover:scale-110"
+        aria-label="Next testimonial"
+      >
+        <ChevronRight className="w-6 h-6 text-slate-900" />
+      </button>
+
+      {/* Swiper Carousel */}
       <Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
         effect="coverflow"
         grabCursor={true}
         centeredSlides={true}
@@ -65,10 +81,6 @@ const TestimonialCarousel = ({ testimonials }) => {
           768: { slidesPerView: 2.2 },
           1024: { slidesPerView: 2.8 },
         }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -76,12 +88,13 @@ const TestimonialCarousel = ({ testimonials }) => {
           modifier: 2.5,
           slideShadows: false,
         }}
-        modules={[EffectCoverflow, Autoplay]}
+        modules={[EffectCoverflow, Navigation]}
+        navigation={false} // We're using custom buttons
         className="pb-16"
       >
         {testimonials.map((t, i) => (
           <SwiperSlide key={i}>
-            <div className="h-[380px] mx-4 rounded-3xl bg-white/95 backdrop-blur-md shadow-2xl border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:scale-105 transition-transform duration-300">
+            <div className="h-[380px] mx-4 rounded-3xl bg-white/95 backdrop-blur-md shadow-2xl border border-slate-200 p-8 flex flex-col justify-center items-center text-center hover:scale-105 transition-transform duration-500">
               {/* Avatar fallback */}
               <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 mb-6 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
                 {t.name.charAt(0)}
@@ -99,14 +112,13 @@ const TestimonialCarousel = ({ testimonials }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </motion.div>
+    </div>
   );
 };
 
-// Main component — THIS is what you import
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50 h-screen w-screen">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50/50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -123,7 +135,7 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <TestimonialCarousel testimonials={testimonials} />
+        <TestimonialCarousel />
       </div>
     </section>
   );

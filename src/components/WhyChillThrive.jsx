@@ -5,7 +5,7 @@ import React from "react";
 const whyPoints = [
   {
     title: "Science-Backed Recovery",
-    description: "Every therapy we offer — cryotherapy, infrared sauna, and cold plunge — is grounded in peer-reviewed research. From reducing inflammation markers to boosting dopamine and norepinephrine, our methods are proven to accelerate recovery, enhance performance, and improve overall well-being.",
+    description: "Every therapy we offer Ice Bath, Steam Bath, and Jacuzzi is grounded in peer-reviewed research. From reducing inflammation markers to boosting dopamine and norepinephrine, our methods are proven to accelerate recovery, enhance performance, and improve overall well-being.",
     iconColor: "text-blue-600",
   },
   {

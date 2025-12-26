@@ -32,20 +32,22 @@ export default function ServicesPage({ setCurrentPage }) {
             </TextEffect>
 
             <AnimatedGroup className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-              {/* Cryotherapy */}
-              <div className="bg-white/80 backdrop-blur-md rounded-xl border border-slate-200 p-6 shadow-xl hover:shadow-2xl transition-shadow">
+              <div className="bg-white/80 backdrop-blur-md rounded-xl border border-slate-200 p-6 shadow-lg hover:shadow-2xl transition-shadow">
                 <h2 className="text-2xl font-semibold text-cyan-700 mb-4">Ice Bath</h2>
                 <p className="text-slate-600 mb-6">
-                  Whole-body cold therapy to reduce inflammation, relieve pain, and boost recovery.
+                  Whole-body cold therapy to reduce stress, relieve pain, and boost recovery.
                 </p>
                 <ul className="text-slate-600 space-y-2">
                   <li>✔️ Rapid muscle recovery</li>
                   <li>✔️ Pain & inflammation relief</li>
                   <li>✔️ Enhanced circulation</li>
                 </ul>
+                 <div className='flex justify-start mt-5 border border-teal-700 px-4 rounded-2xl w-fit gap-3'>
+                <span className='text-2xl font-semibold'>Just for </span>
+                <span className="text-2xl font-bold text-teal-700">$50</span>
+                </div>
               </div>
 
-              {/* Infrared Sauna */}
               <div className="bg-white/80 backdrop-blur-md rounded-xl border border-slate-200 p-6 shadow-xl hover:shadow-2xl transition-shadow">
                 <h2 className="text-2xl font-semibold text-cyan-700 mb-4">Steam Bath</h2>
                 <p className="text-slate-600 mb-6">
@@ -56,9 +58,13 @@ export default function ServicesPage({ setCurrentPage }) {
                   <li>✔️ Stress relief</li>
                   <li>✔️ Skin rejuvenation</li>
                 </ul>
+                 <div className='flex justify-start mt-5 border border-teal-700 px-4 rounded-2xl w-fit gap-3'>
+                <span className='text-2xl font-semibold'>Just for </span>
+                <span className="text-2xl font-bold text-teal-700">$45</span>
+                </div>
               </div>
 
-              {/* Cold Plunge */}
+             
               <div className="bg-white/80 backdrop-blur-md rounded-xl border border-slate-200 p-6 shadow-xl hover:shadow-2xl transition-shadow">
                 <h2 className="text-2xl font-semibold text-cyan-700 mb-4">Jacuzzi</h2>
                 <p className="text-slate-600 mb-6">
@@ -69,12 +75,16 @@ export default function ServicesPage({ setCurrentPage }) {
                   <li>✔️ Mental toughness</li>
                   <li>✔️ Immune & mood boost</li>
                 </ul>
+                <div className='flex justify-start mt-5 border border-teal-700 px-4 rounded-2xl w-fit gap-3'>
+                <span className='text-2xl font-semibold'>Just for </span>
+                <span className="text-2xl font-bold text-teal-700">$50</span>
+                </div>
               </div>
             </AnimatedGroup>
 
-            {/* NEW: Combo Packages */}
+           
             <div className="mt-20">
-              <h2 className="text-center text-4xl font-bold text-slate-900 mb-12">
+              <h2 className="text-center text-4xl font-bold text-slate-800 mb-12">
                 Combo Packages <span className="text-cyan-600">(Save More)</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -94,7 +104,7 @@ export default function ServicesPage({ setCurrentPage }) {
                   <span className="text-green-600 ml-2 font-medium">Save $15</span>
                 </div>
 
-                <div className="bg-gradient-to-br from-indigo-50 to-cyan-50 rounded-xl border-2 border-indigo-300 p-8 shadow-2xl ring-4 ring-indigo-200/50">
+                <div className="bg-gradient-to-br from-indigo-50 to-cyan-50 rounded-xl border-1 border-indigo-200 p-8 shadow-xl">
                   <div className="text-center mb-4">
                     <span className="bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-medium">Best Value</span>
                   </div>
