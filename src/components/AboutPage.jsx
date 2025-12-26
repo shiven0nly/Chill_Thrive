@@ -97,7 +97,7 @@ const AboutPage = ({ setCurrentPage }) => {
                 not just survive. A place where performance meets peace, and recovery feels like a ritual you look forward to.
               </p>
               <p className="text-xl font-medium text-slate-800 mt-8">
-                — Jordan Hayes, Founder
+                — Ravi Shashtri, Founder
               </p>
             </div>
           </motion.section>
